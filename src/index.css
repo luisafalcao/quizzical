@@ -69,7 +69,7 @@ button {
 
 @media only screen and (min-width: 700px) {
   button {
-    height: 200px;
+    width: 200px;
   } 
 }
 
