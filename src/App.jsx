@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
-import './App.css'
 import Questions from './components/Questions'
+import yellowBlob from "./assets/yellowblob.svg"
+import blueBlob from "./assets/blueblob.svg"
+import './App.css'
 
 function App() {
 	const [gameStart, setGameStart] = useState(false)
@@ -22,8 +24,8 @@ function App() {
 
 	return (
 		<>
-		<img className="yellowblob" src="/src/assets/yellowblob.svg" alt="" />
-		<img className="blueblob" src="/src/assets/blueblob.svg" alt="" />
+		<img className="yellowblob" src={yellowBlob} alt="" />
+		<img className="blueblob" src={blueBlob} alt="" />
 		<main className="container">
 			{!gameStart ? 
 			(<section className="starter--container">
