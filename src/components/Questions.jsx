@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { nanoid, random } from "nanoid";
+import { nanoid } from "nanoid";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrophy } from '@fortawesome/free-solid-svg-icons'
 
-export default function Question({ data, fetchData }) {
+export default function Question({ data, fetchData, category }) {
 	const [completed, setCompleted] = useState(false)
 	const [alert, setAlert] = useState(false)
 	const [score, setScore] = useState()
@@ -15,6 +17,28 @@ export default function Question({ data, fetchData }) {
 		question4: "",
 	})
 	const [btnState, setBtnState] = useState(false)
+
+	let categoryName
+	switch (category.category) {
+		case "10":
+			categoryName = "Books";
+			break;
+		case "11":
+			categoryName = "Film";
+			break;
+		case "12":
+			categoryName = "Music";
+			break;
+		case "14":
+			categoryName = "Television";
+			break;
+		case "21":
+			categoryName = "Sports";
+			break;
+		case "26":
+			categoryName = "Celebrities";
+			break;
+	}
 
 	function handleSelection(event) {
 		const {name, value} = event.target
@@ -91,13 +115,33 @@ export default function Question({ data, fetchData }) {
 	return (
 		<>
 			<div className="quiz--container">
+				<h2 className="category--name">Category: <span>{categoryName}</span></h2>
 				{renderQuestionBlocks}
 			</div>
-			{gameEnd ?
-			<button onClick={newGame}>New game</button> :
+			{
+			gameEnd 
+			?
+			<div>
+				<button onClick={newGame}>New game</button>
+				<button className="change-cat--button">Change category</button>
+			</div> 
+			:
 			<button onClick={checkAnswers}>Check answers</button>
 			}
-			{alert ? (<p className="alert">{completed ? `You scored ${score}/5 questions` : `Please answer all questions`}</p>) : ""}
+			
+			{
+			alert && completed ?
+				<div className="modal">	
+					<FontAwesomeIcon icon={faTrophy} className="trophy"/>
+					<p className="alert">
+						You scored {score}/5 questions
+					</p>
+				</div>
+			:
+			alert && !completed &&
+				<p className="alert">Please answer all the questions</p>
+			}
+			
 		</>
 	)
 }
