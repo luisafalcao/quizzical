@@ -128,6 +128,7 @@ function App() {
 				data={data}
 				fetchData={fetchData}
 				category={category}
+				setGameStart={setGameStart}
 			/>
 			}
 		</main>

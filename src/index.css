@@ -2,7 +2,7 @@
 
 :root {
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 24px;
   font-weight: 500;
 
@@ -15,6 +15,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+@media only screen and (min-width: 700px) {
+  :root {
+    font-size: 16px;
+  }
 }
 
 a {
@@ -48,9 +54,9 @@ p {
 }
 
 button {
-  width: 200px;
+  width: 175px;
   border-radius: 15px;
-  border: none;
+  border: 1px solid #4D5B9E;
   padding: 1rem 0.5rem;
   font-size: 1em;
   font-weight: 500;
@@ -59,6 +65,12 @@ button {
   background-color: #4D5B9E;
   cursor: pointer;
   transition: border-color 0.25s;
+}
+
+@media only screen and (min-width: 700px) {
+  button {
+    height: 200px;
+  } 
 }
 
 button:hover {

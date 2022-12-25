@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrophy } from '@fortawesome/free-solid-svg-icons'
 
-export default function Question({ data, fetchData, category }) {
+export default function Question({ data, fetchData, category, setGameStart }) {
 	const [completed, setCompleted] = useState(false)
 	const [alert, setAlert] = useState(false)
 	const [score, setScore] = useState()
@@ -123,7 +123,7 @@ export default function Question({ data, fetchData, category }) {
 			?
 			<div>
 				<button onClick={newGame}>New game</button>
-				<button className="change-cat--button">Change category</button>
+				<button onClick={() => setGameStart(false)} className="change-cat--button">Change category</button>
 			</div> 
 			:
 			<button onClick={checkAnswers}>Check answers</button>

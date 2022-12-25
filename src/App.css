@@ -1,6 +1,12 @@
 #root {
-  padding: 2rem;
-  text-align: center;
+  padding: 1rem;
+}
+
+@media only screen and (min-width: 700px) {
+  #root {
+    padding: 2rem;
+    text-align: center;
+  }
 }
 
 .container {
@@ -10,6 +16,10 @@
   align-items: center;
 }
 
+.starter--container {
+  text-align: center;
+}
+
 h1 {
   margin-top: 0;
 }
@@ -17,8 +27,15 @@ h1 {
 .yellowblob,
 .blueblob {
   position: absolute;
-  height: 30%;
+  height: 15%;
   z-index: -1;
+}
+
+@media only screen and (min-width: 700px) {
+  .yellowblob,
+  .blueblob {
+    height: 30%;
+  } 
 }
 
 .yellowblob {
@@ -53,6 +70,7 @@ button.disabled {
 
 .change-cat--button {
   background-color: #DEEBF8;
+  border: 1px solid #4D5B9E;
   color: #293264;
   margin-left: 1rem;
 }
@@ -90,12 +108,19 @@ button.disabled {
 
 .choices--container {
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   gap: 1rem;
   flex-wrap: wrap;
   
   width: 100%;
   margin: 1rem auto;
+}
+
+@media only screen and (min-width: 700px) {
+  .choices--container {
+    flex-direction: row;
+  }
 }
 
 .choice--container {
@@ -156,8 +181,8 @@ form[data-right=false] {
 }
 
 .modal {
-  width: 25%;
-  height: 25%;
+  width: 70%;
+  height: 30%;
   background-color: #D6DBF5;
   border-color: #D6DBF5;
   border-radius: 10px;
@@ -176,6 +201,15 @@ form[data-right=false] {
   padding: 2rem;
   box-shadow:  20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 }
+
+
+@media only screen and (min-width: 700px) {
+  .modal {
+    width: 25%;
+    height: 25%;
+  }
+}
+
 
 .modal.incomplete {
   background-color: #F8BCBC;
